@@ -1,3 +1,8 @@
 *.o
 *.out
 *.exe
+reverse_string
+number_filter
+array_sum_and_average
+grid_printer
+student_info
