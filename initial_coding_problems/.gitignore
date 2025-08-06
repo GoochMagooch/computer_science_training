@@ -1,6 +1,7 @@
 *.o
 *.out
 *.exe
+a.out
 reverse_string
 number_filter
 array_sum_and_average
