@@ -4,22 +4,27 @@
 
 int main() {
 
+    // Populate empty 2D array with a string of the Row & Column
     char *matrix[3][4];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
-            char input[10] = "";
+            char input[10];
             sprintf(input, "Row%dCol%d", (i+1), (j+1));
-            // matrix[i][j] = input;
-            matrix[i][j] = input;
-            // printf("%s\n", matrix[i][j]);
+            matrix[i][j] = strdup(input);
         }
     }
 
+    // Print each cell of matrix
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
-            printf("%s ", matrix[i][j]);
+            if (j == 3) {
+                printf("%s\n", matrix[i][j]);
+            } else {
+                printf("%s, ", matrix[i][j]);
+            }
         }
-        printf("\n");
     }
+
+    // Free up extra allocated memory
 
 }
