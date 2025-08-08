@@ -4,6 +4,13 @@
 
 int main() {
     int bits[8] = {128, 64, 32, 16, 8, 4, 2, 1}; // Array of bits to run against octets
+    // Address: 01111111
+    // 127
+    // 63
+    // 31
+    // 15
+    // 7
+    // 3
 
     // Requests user input and stores inputs in array of ints
     int ip[4];
@@ -35,13 +42,16 @@ int main() {
 
     for (int i = 0; i < length; i++) {
         int temp_bit = ip[i];
-        char temp[8]; // this will append to binary on each iteration with a dot, except the last iteration
+        char temp[8];
         for (int j = 0; j < iterations; j++) {
             if (temp_bit - bits[j] >= 0) {
-                sprintf(temp, "1"); // supposed to append 1 to temp
+                sprintf(temp, "1"); // append 1 to temp
+                // update temp_bit with temp_bit - bits[i]
             } else { // figure out how to append characters to strings
-                sprintf(temp, "0"); // supposed to append 0 to temp
+                sprintf(temp, "0"); // append 0 to temp
+                // don't update temp_bit
             }
+            // update binary with temp and a dot, unless final iteration
         }
     }
 
