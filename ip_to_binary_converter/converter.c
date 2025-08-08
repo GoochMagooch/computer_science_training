@@ -3,7 +3,7 @@
 #include <string.h>
 
 int main() {
-    int bits[8] = {1, 2, 4, 8, 16, 32, 64, 132}; // Array of bits to run against octets
+    int bits[8] = {128, 64, 32, 16, 8, 4, 2, 1}; // Array of bits to run against octets
 
     // Requests user input and stores inputs in array of ints
     int ip[4];
@@ -30,7 +30,20 @@ int main() {
     }
 
     // Converts user IP address to binary
-    
+    char binary[35];
+    int iterations = sizeof(bits) / sizeof(bits[0]);
+
+    for (int i = 0; i < length; i++) {
+        int temp_bit = ip[i];
+        char temp[8]; // this will append to binary on each iteration with a dot, except the last iteration
+        for (int j = 0; j < iterations; j++) {
+            if (temp_bit - bits[j] >= 0) {
+                sprintf(temp, "1"); // supposed to append 1 to temp
+            } else { // figure out how to append characters to strings
+                sprintf(temp, "0"); // supposed to append 0 to temp
+            }
+        }
+    }
 
     return 0;
 }
