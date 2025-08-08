@@ -4,13 +4,6 @@
 
 int main() {
     int bits[8] = {128, 64, 32, 16, 8, 4, 2, 1}; // Array of bits to run against octets
-    // Address: 01111111
-    // 127
-    // 63
-    // 31
-    // 15
-    // 7
-    // 3
 
     // Requests user input and stores inputs in array of ints
     int ip[4];
@@ -27,12 +20,13 @@ int main() {
     }
 
     // Outputs user inputs formatted as 8 bit IP address
+    char user_ip[15];
     int length = sizeof(ip) / sizeof(ip[0]);
     for (int i = 0; i < length; i++) {
         if (i == length - 1) {
-            printf("%d\n", ip[i]);
+            sprintf(user_ip, "%d\n", ip[i]);
         } else {
-            printf("%d.", ip[i]);
+            sprintf(user_ip, "%d.", ip[i]);
         }
     }
 
@@ -46,14 +40,19 @@ int main() {
         for (int j = 0; j < iterations; j++) {
             if (temp_bit - bits[j] >= 0) {
                 sprintf(temp, "1"); // append 1 to temp
-                // update temp_bit with temp_bit - bits[i]
+                temp_bit = temp_bit - bits[j]; // update temp_bit with temp_bit - bits[j]
             } else { // figure out how to append characters to strings
                 sprintf(temp, "0"); // append 0 to temp
-                // don't update temp_bit
             }
-            // update binary with temp and a dot, unless final iteration
+            if (i == iterations - 1) {
+                sprintf(binary, "%s", temp);
+            } else {
+                sprintf(binary, "%s.", temp);
+            }
         }
     }
 
+    printf("IPv4 address: \n%s\n", user_ip);
+    printf("Binary representation of IPv4: \n%s\n", binary);
     return 0;
 }
