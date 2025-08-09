@@ -40,10 +40,10 @@ int main() {
         int binary[8];
         for (int j = 0; j < iterations; j++) {
             if (temp_bit - bits[j] >= 0) {
-                binary[j] = 1; // append 1 to temp
-                temp_bit = temp_bit - bits[j]; // update temp_bit with temp_bit - bits[j]
-            } else { // figure out how to append characters to strings
-                binary[j] = 0; // append 0 to temp
+                binary[j] = 1;
+                temp_bit = temp_bit - bits[j];
+            } else {
+                binary[j] = 0;
             }
         }
         if (i == length - 1) {
