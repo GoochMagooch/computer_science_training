@@ -20,13 +20,14 @@ int main() {
     }
 
     // Outputs user inputs formatted as 8 bit IP address
+    printf("IPv4 address: ");
     char user_ip[15];
     int length = sizeof(ip) / sizeof(ip[0]);
     for (int i = 0; i < length; i++) {
         if (i == length - 1) {
-            sprintf(user_ip, "%d\n", ip[i]);
+            printf("%d", ip[i]);
         } else {
-            sprintf(user_ip, "%d.", ip[i]);
+            printf("%d.", ip[i]);
         }
     }
 
@@ -52,7 +53,6 @@ int main() {
         }
     }
 
-    printf("IPv4 address: \n%s\n", user_ip);
-    printf("Binary representation of IPv4: \n%s\n", binary);
+    printf("\nBinary representation of IPv4: %s\n", binary);
     return 0;
 }
