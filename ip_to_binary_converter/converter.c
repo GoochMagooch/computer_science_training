@@ -32,7 +32,7 @@ int main() {
     }
 
     // Converts user IP address to binary
-    printf("\nBinary representation of IPv4: \n");
+    printf("\nBinary representation of IPv4: ");
     int iterations = sizeof(bits) / sizeof(bits[0]);
 
     for (int i = 0; i < length; i++) {
@@ -44,6 +44,23 @@ int main() {
                 temp_bit = temp_bit - bits[j]; // update temp_bit with temp_bit - bits[j]
             } else { // figure out how to append characters to strings
                 binary[j] = 0; // append 0 to temp
+            }
+        }
+        if (i == length - 1) {
+            for (int x = 0; x < iterations; x++) {
+                if (x == iterations - 1) {
+                    printf("%d\n", binary[x]);
+                } else {
+                    printf("%d", binary[x]);
+                }
+            }
+        } else {
+            for (int y = 0; y < iterations; y++) {
+                if (y == iterations - 1) {
+                    printf("%d.", binary[y]);
+                } else {
+                    printf("%d", binary[y]);
+                }
             }
         }
     }
