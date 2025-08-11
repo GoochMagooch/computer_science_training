@@ -21,7 +21,6 @@ int main() {
 
     // Outputs user inputs formatted as 8 bit IP address
     printf("IPv4 address: ");
-    char user_ip[15];
     int length = sizeof(ip) / sizeof(ip[0]);
     for (int i = 0; i < length; i++) {
         if (i == length - 1) {
