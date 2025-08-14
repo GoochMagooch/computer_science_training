@@ -3,7 +3,7 @@
 #include <string.h>
 
 int main() {
-    int bits[8] = {128, 64, 32, 16, 8, 4, 2, 1}; // Array of bits to run against octets
+    // int bits[8] = {128, 64, 32, 16, 8, 4, 2, 1}; // Array of bits to run against octets
 
     // Requests user input and stores inputs in array of ints
     int ip[4];
@@ -32,30 +32,31 @@ int main() {
 
     // Converts user IP address to binary
     printf("\nBinary representation of IPv4: ");
-    int iterations = sizeof(bits) / sizeof(bits[0]);
-
     for (int i = 0; i < length; i++) {
+        int bits = 128;
         int temp_bit = ip[i];
         int binary[8];
-        for (int j = 0; j < iterations; j++) {
-            if (temp_bit - bits[j] >= 0) {
+        for (int j = 0; j < 8; j++) {
+            if (temp_bit - bits >= 0) {
                 binary[j] = 1;
-                temp_bit = temp_bit - bits[j];
+                temp_bit = temp_bit - bits;
+                bits = bits / 2;
             } else {
                 binary[j] = 0;
+                bits = bits / 2;
             }
         }
         if (i == length - 1) {
-            for (int x = 0; x < iterations; x++) {
-                if (x == iterations - 1) {
+            for (int x = 0; x < 8; x++) {
+                if (x == 8 - 1) {
                     printf("%d\n", binary[x]);
                 } else {
                     printf("%d", binary[x]);
                 }
             }
         } else {
-            for (int y = 0; y < iterations; y++) {
-                if (y == iterations - 1) {
+            for (int y = 0; y < 8; y++) {
+                if (y == 8 - 1) {
                     printf("%d.", binary[y]);
                 } else {
                     printf("%d", binary[y]);
@@ -63,5 +64,6 @@ int main() {
             }
         }
     }
+    printf("\n");
     return 0;
 }
